@@ -131,3 +131,6 @@
 2016-05-10 15:21:39,046 DEBUG ~ 正在执行ation请求命令:front.account.Message.countMessage  ~ play.Logger.debug(Logger.java:232) ~ play ~ 1385688
 2016-05-10 15:21:44,856 DEBUG ~ 正在执行ation请求命令:front.invest.InvestAction.viewBidInvestRecords  ~ play.Logger.debug(Logger.java:232) ~ play ~ 1391498
 2016-05-10 15:21:49,705 DEBUG ~ 正在执行ation请求命令:front.invest.InvestAction.viewBidInvestRecords  ~ play.Logger.debug(Logger.java:232) ~ play ~ 1396347
+2016-05-10 16:25:17,511 INFO  ~ Starting G:\git\haojiecun\hjcsp2p\hjc_sp2p  ~ play.Logger.info(Logger.java:289) ~ play ~ 0
+2016-05-10 16:25:20,336 WARN  ~ You're running Play! in DEV mode  ~ play.Logger.warn(Logger.java:344) ~ play ~ 2825
+2016-05-10 16:25:20,396 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...  ~ play.Logger.info(Logger.java:289) ~ play ~ 2885
