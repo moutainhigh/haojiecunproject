@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -190,17 +191,28 @@ public class Invest implements Serializable{
 		sql.append(" order by time desc");
 		List<Object> params = new ArrayList<Object>();
 		params.add(bidId);
-		
 		try {
 			EntityManager em = JPA.em();
             Query query = em.createNativeQuery(sql.toString(),v_invest_records.class);
+            
             for(int n = 1; n <= params.size(); n++){
                 query.setParameter(n, params.get(n-1));
             }
             query.setFirstResult((currPage - 1) * pageSize);
             query.setMaxResults(pageSize);
             list = query.getResultList();
-            
+             for (int i = 0; i < list.size(); i++) {
+				v_invest_records b = list.get(i);
+				String name = b.getName();
+				if(name.matches("[0-9]{1,}")){
+					 name =  name.substring(0, 3)+"***"+ name.substring(7,11);
+					b.setName(name);
+				}else{
+					name = name.substring(0,1)+"***";
+					b.setName(name);
+				}
+				
+			}
             pageBean.totalCount = QueryUtil.getQueryCountByCondition(em, sql.toString(), params);
             
 		} catch (Exception e) {
@@ -243,6 +255,21 @@ public class Invest implements Serializable{
             query.setFirstResult((currPage - 1) * pageSize);
             query.setMaxResults(pageSize);
             list = query.getResultList();
+            for (int i = 0; i < list.size(); i++) {
+            	v_return_rate_records d = list.get(i);
+            	String name = d.getInvest_user_name();
+            	if(name.matches("[0-9]{1,}")){
+            		name = name.substring(0,3)+"***"+name.substring(7,11);
+            		d.setInvest_user_name(name);
+            	}else{
+            		name = name.substring(0,1)+"***";
+            		d.setInvest_user_name(name);
+            	}
+			}
+            
+            
+            
+            
             
             pageBean.totalCount = QueryUtil.getQueryCountByCondition(em, sql.toString(), params);
 
