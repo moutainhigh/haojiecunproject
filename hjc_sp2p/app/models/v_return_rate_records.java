@@ -18,4 +18,11 @@ public class v_return_rate_records extends Model{
 	public String invest_user_name;
 	public Double rate;
 	public String description;
+	public String getInvest_user_name() {
+		return invest_user_name;
+	}
+	public void setInvest_user_name(String invest_user_name) {
+		this.invest_user_name = invest_user_name;
+	}
+	
 }

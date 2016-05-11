@@ -37,6 +37,14 @@ public class v_receiving_invest_bids extends Model{
 	@Transient
 	public String sign2;
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getSign() {
 		return Security.addSign(this.id, Constants.BID_ID_SIGN);
 	}

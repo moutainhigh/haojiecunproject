@@ -45,6 +45,14 @@ public class v_user_waiting_full_invest_bids extends Model{
 			
 			return receiving_amount;
 		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
 		
 		
 		

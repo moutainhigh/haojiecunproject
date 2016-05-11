@@ -28,6 +28,14 @@ public class v_user_success_invest_bids extends Model{
 	public String getSign() {
 		return Security.addSign(this.id, Constants.BID_ID_SIGN);
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	
 

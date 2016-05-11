@@ -45,6 +45,14 @@ public class v_debt_user_transfer_management extends Model {
 	public String getSign() {
 		return Security.addSign(this.id, Constants.BID_ID_SIGN);
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	
 	
