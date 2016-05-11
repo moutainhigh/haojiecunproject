@@ -16,7 +16,7 @@
               <a class="tyb_contLA" href="/front/debt/debtHome">更多债权项目　》</a>
            </div>
             %{int i = 0;}%
-           <ul class="l_dbxm_detail tyb_r clr">
+           <ul class="l_dbxm_detail tyb_r clr" id="af2">
                    	
              #{list debts}
              
@@ -77,6 +77,47 @@
 				$(".xf_c_idx_4_items").eq(xxkli).show().siblings(".xf_c_idx_4_items").hide();
 
 			});
-			
-			
+			//敬请期待，新标在来的路上
+			var aF2=document.getElementById('af2');
+			var aBlank=document.querySelectorAll('#af2 li');
+			if(aBlank.length==0){
+				for(var i=0;i<4;i++){
+					var oLi=document.createElement('li');
+					oLi.innerHTML='<img src="public/images/blank.jpg"/>';
+					oLi.style.width=204+"px";
+					oLi.style.height=380+"px";
+					oLi.style.background="url(public/images/sx.png) right center no-repeat";
+					oLi.style.cssFloat="left";
+					aF2.appendChild(oLi);
+				}
+			}else if(aBlank1.length==1){
+				for(var i=0;i<3;i++){
+				var oLi=document.createElement('li');
+				oLi.innerHTML='<img src="public/images/blank.jpg"/>';
+				oLi.style.width=204+"px";
+				oLi.style.height=380+"px";
+				oLi.style.background="url(public/images/sx.png) right center no-repeat";
+				oLi.style.cssFloat="left";
+				aF2.appendChild(oLi);
+				}
+			}else if(aBlank1.length==2){
+				for(var i=0;i<2;i++){
+					var oLi=document.createElement('li');
+					oLi.innerHTML='<img src="public/images/blank.jpg"/>';
+					oLi.style.width=204+"px";
+					oLi.style.height=380+"px";
+					oLi.style.background="url(public/images/sx.png) right center no-repeat";
+					oLi.style.cssFloat="left";
+					aF2.appendChild(oLi);
+				}
+			}else if(aBlank1.length==3){
+				var oLi=document.createElement('li');
+				oLi.innerHTML='<img src="public/images/blank.jpg"/>';
+				oLi.style.width=204+"px";
+				oLi.style.height=380+"px";
+				oLi.style.background="url(public/images/sx.png) right center no-repeat";
+				oLi.style.cssFloat="left";
+				aF2.appendChild(oLi);
+			}
+					
 		</script>

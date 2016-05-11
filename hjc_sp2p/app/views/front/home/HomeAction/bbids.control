@@ -15,7 +15,7 @@
               </div>
               <a class="tyb_contLA" href="/front/invest/investRegular">更多体验项目　》</a>
            </div>
-           <ul class="l_dbxm_detail tyb_r clr">
+           <ul class="l_dbxm_detail tyb_r clr" id="af">
                    	
              #{list items:agencyBbids, as:'agencyBids'}
             
@@ -124,6 +124,37 @@
 				$(".xf_c_idx_4_items").eq(xxkli).show().siblings(".xf_c_idx_4_items").hide();
 
 			});
-			
+			//敬请期待，新标在来的路上
+			var aF=document.getElementById('af');
+			var aBlank=document.querySelectorAll('#af li');
+			if(aBlank.length==1){
+				for(var i=0;i<3;i++){
+				var oLi=document.createElement('li');
+				oLi.innerHTML='<img src="public/images/blank.jpg"/>';
+				oLi.style.width=204+"px";
+				oLi.style.height=380+"px";
+				oLi.style.background="url(public/images/sx.png) right center no-repeat";
+				oLi.style.cssFloat="left";
+				aF.appendChild(oLi);
+				}
+			}else if(aBlank.length==2){
+				for(var i=0;i<2;i++){
+					var oLi=document.createElement('li');
+					oLi.innerHTML='<img src="public/images/blank.jpg"/>';
+					oLi.style.width=204+"px";
+					oLi.style.height=380+"px";
+					oLi.style.background="url(public/images/sx.png) right center no-repeat";
+					oLi.style.cssFloat="left";
+					aF.appendChild(oLi);
+				}
+			}else if(aBlank.length==3){
+				var oLi=document.createElement('li');
+				oLi.innerHTML='<img src="public/images/blank.jpg"/>';
+				oLi.style.width=204+"px";
+				oLi.style.height=380+"px";
+				oLi.style.background="url(public/images/sx.png) right center no-repeat";
+				oLi.style.cssFloat="left";
+				aF.appendChild(oLi);
+			}
 			
 		</script>
