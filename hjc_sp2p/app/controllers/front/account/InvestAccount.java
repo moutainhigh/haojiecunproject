@@ -260,8 +260,8 @@ public class InvestAccount extends BaseController {
 		v_bill_invest_detail investDetail = BillInvests.queryMyInvestBillDetails(id, user.id, error);
 		PageBean<t_bill_invests> page = BillInvests.queryMyInvestBillReceivables(investDetail.bid_id,investDetail.user_id, investDetail.invest_id, currPage, pageSize, error);
 		BackstageSet backSet = BackstageSet.getCurrentBackstageSet();
-		String sql = "SELECT SUM(real_receive_corpus+real_receive_interest) FROM t_bill_invests where bid_id = ? and user_id = ?";
-		Double monery = t_bill_invests.find(sql,investDetail.bid_id,user.id).first();
+		String sql = "SELECT SUM(real_receive_corpus+real_receive_interest) FROM t_bill_invests where bid_id = ? and user_id = ? and id = ?";
+		Double monery = t_bill_invests.find(sql,investDetail.bid_id,user.id,id).first();
 		render(investDetail, backSet, page,monery);
 	}
 	
