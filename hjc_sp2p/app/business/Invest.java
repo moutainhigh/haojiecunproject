@@ -1224,7 +1224,17 @@ public static PageBean<v_front_all_bids> queryAllBidss(int showType, int currPag
 	            query.setFirstResult((currPage - 1) * pageSize);
 	            query.setMaxResults(pageSize);
 	            investRecords = query.getResultList();
-	            
+	            for (int i = 0; i < investRecords.size(); i++) {
+	            	v_invest_records d = investRecords.get(i);
+	            	String name = d.getBid_user_name();
+	            	if(name.matches("[0-9]{1,}")){
+	            		name = name.substring(0,3)+"***"+name.substring(7,11);
+	            		d.setBid_user_name(name);
+	            	}else{
+	            		name = name.substring(0,1);
+	            		d.setBid_user_name(name);
+	            	}
+				}
 	            page.totalCount = QueryUtil.getQueryCountByCondition(em, sql.toString(), params);
 	            
 			} catch (Exception e) {
@@ -1269,7 +1279,17 @@ public static PageBean<v_front_all_bids> queryAllBidss(int showType, int currPag
             query.setFirstResult((currPage - 1) * pageSize);
             query.setMaxResults(pageSize);
             investRecords = query.getResultList();
-            
+            for (int i = 0; i < investRecords.size(); i++) {
+            	v_invest_records d = investRecords.get(i);
+            	String name = d.getBid_user_name();
+            	if(name.matches("[0-9]{1,}")){
+            		name = name.substring(0,3)+"***"+name.substring(7,11);
+            		d.setBid_user_name(name);
+            	}else{
+            		name = name.substring(0,1);
+            		d.setBid_user_name(name);
+            	}
+			}
             page.totalCount = QueryUtil.getQueryCountByCondition(em, sql.toString(), params);
             
 		} catch (Exception e) {
@@ -2082,7 +2102,17 @@ public static PageBean<v_front_all_bids> queryAllBidss(int showType, int currPag
             query.setFirstResult((currPage - 1) * pageSize);
             query.setMaxResults(pageSize);
             bidList = query.getResultList();
-            
+            for (int i = 0; i < bidList.size(); i++) {
+            	v_user_waiting_full_invest_bids b = bidList.get(i);
+            	String name = b.getName();
+            	if(name.matches("[0-9]{1,}")){
+            		name = name.substring(0,3)+"***"+name.substring(7,11);
+            		b.setName(name);
+            	}else{
+            		name = name.substring(0,1)+"***";
+            		b.setName(name);
+            	}
+			}
             page.totalCount = QueryUtil.getQueryCountByCondition(em, sql.toString(), params);
             
 		} catch (Exception e) {
@@ -2161,7 +2191,17 @@ public static PageBean<v_front_all_bids> queryAllBidss(int showType, int currPag
             query.setFirstResult((currPage - 1) * pageSize);
             query.setMaxResults(pageSize);
             bidList = query.getResultList();
-            
+            for (int i = 0; i < bidList.size(); i++) {
+            	v_user_waiting_full_invest_bids b = bidList.get(i);
+            	String name = b.getName();
+            	if(name.matches("[0-9]{1,}")){
+            		name = name.substring(0,3)+"***"+name.substring(7,11);
+            		b.setName(name);
+            	}else{
+            		name = name.substring(0,1)+"***";
+            		b.setName(name);
+            	}
+			}
             page.totalCount = QueryUtil.getQueryCountByCondition(em, sql.toString(), params);
             
 		} catch (Exception e) {
@@ -2228,6 +2268,17 @@ public static PageBean<v_front_all_bids> queryAllBidss(int showType, int currPag
 	            query.setFirstResult((currPage - 1) * pageSize);
 	            query.setMaxResults(pageSize);
 	            list = query.getResultList();
+	           for (int i = 0; i < list.size(); i++) {
+	        	   v_user_success_invest_bids b = list.get(i);
+	        	   String name = b.getName();
+	        	   if(name.matches("[0-9]{1,}")){
+	        		   name = name.substring(0,3)+"***"+name.substring(7,11);
+	        		   b.setName(name);
+	        	   }else{
+	        		   name = name.substring(0,1)+"***";
+	        		   b.setName(name);
+	        	   }
+			}
 	            page.totalCount = Integer.parseInt(queryCount.getSingleResult().toString());
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -2341,6 +2392,18 @@ public static PageBean<v_receiving_invest_bids> queryUserAllReceivingInvestBids(
 	            query.setFirstResult((currPage - 1) * pageSize);
 	            query.setMaxResults(pageSize);
 	            bidList = query.getResultList();
+	            
+	            for (int i = 0; i < bidList.size(); i++) {
+	            	v_receiving_invest_bids d = bidList.get(i);
+	            	String name = d.getName();
+	            	if(name.matches("[0-9]{1,}")){
+	            		name = name.substring(0,3)+"***"+name.substring(7,11);
+	            		d.setName(name);
+	            	}else{
+	            		name = name.substring(0,1);
+	            		d.setName(name);
+	            	}
+				}
 	            page.totalCount = Integer.parseInt(queryCount.getSingleResult().toString());
 	            		
 //	            page.totalCount = ;//QueryUtil.getQueryCountByCondition(em, sql.toString(), params);
@@ -2432,6 +2495,17 @@ public static PageBean<v_receiving_invest_bids> queryUserAllReceivingInvestBids(
             query.setParameter(1, userId);
             query.setMaxResults(5);
             vbid = query.getResultList();
+            for (int i = 0; i < vbid.size(); i++) {
+				v_receiving_invest_bids d = vbid.get(i);
+				String name = d.getName();
+				if(name.matches("[0-9]{1,}")){
+					name = name.substring(0,3)+"***"+name.substring(7,11);
+					d.setName(name);
+				}else{
+					name = name.substring(0,1)+"***";
+					d.setName(name);
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			error.code = -2;

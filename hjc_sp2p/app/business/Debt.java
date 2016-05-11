@@ -3450,7 +3450,18 @@ public class Debt implements Serializable{
 	            query.setFirstResult((currPage - 1) * pageSize);
 	            query.setMaxResults(pageSize);
 	            transferList = query.getResultList();
-	            
+	            for (int i = 0; i < transferList.size(); i++) {
+	            	v_debt_user_transfer_management b = transferList.get(i);
+	            	String name = b.getName();
+	            	if(name.matches("[0-9]{1,}")){
+	            		name = name.substring(0,3)+"***"+name.substring(7,11);
+	            		b.setName(name);
+	            	}else{
+	            		name = name.substring(0,1)+"***";
+	            		b.setName(name);
+	            				
+	            	}
+				}
 	            page.totalCount = QueryUtil.getQueryCountByCondition(em, sql.toString(), params);
 	            
 			} catch (Exception e) {
