@@ -1231,7 +1231,7 @@ public static PageBean<v_front_all_bids> queryAllBidss(int showType, int currPag
 	            		name = name.substring(0,3)+"***"+name.substring(7,11);
 	            		d.setBid_user_name(name);
 	            	}else{
-	            		name = name.substring(0,1);
+	            		name = name.substring(0,1)+"***";
 	            		d.setBid_user_name(name);
 	            	}
 				}
